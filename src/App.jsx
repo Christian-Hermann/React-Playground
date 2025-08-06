@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function App() {
-  const [count, setCount] = useState(0);
+function app() {
+  const [name, setName] = useState("");
 
-  function handleClick() {
-    setCount(count + 1);
-    console.log("Clicked! New count is:", count + 1);
-  }
+  useEffect(() => {
+    console.log("Name changed to:", name);
+  }, [name]);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Count: {count}</h1>
-      <button onClick={handleClick}>Click Me</button>
+    <div>
+      <h1>Hello {name || "Stranger"}</h1>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Christian"
+      />
     </div>
   );
 }
 
-export default App;
+export default app;
