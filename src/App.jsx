@@ -2,7 +2,7 @@ import { useState } from "react";
 import Greeting from "./Greeting";
 
 function App() {
-  const [people, setPeople] = [
+  const people = [
     { name: "Christian", age: 42, hobby: "Coding" },
     { name: "Lisa", age: 38, hobby: "Skiing" },
     { name: "Hermann", age: 21, hobby: "" },
