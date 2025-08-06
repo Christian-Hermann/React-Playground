@@ -1,23 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Greeting from "./Greeting";
 
-function app() {
-  const [name, setName] = useState("");
-
-  useEffect(() => {
-    console.log("Name changed to:", name);
-  }, [name]);
+function App() {
+  const [people, setPeople] = [
+    { name: "Christian", age: 42, hobby: "Coding" },
+    { name: "Lisa", age: 38, hobby: "Skiing" },
+    { name: "Hermann", age: 21, hobby: "" },
+  ];
 
   return (
     <div>
-      <h1>Hello {name || "Stranger"}</h1>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Christian"
-      />
+      {people.map((person, index) => (
+        <Greeting
+          key={index}
+          name={person.name}
+          age={person.age}
+          hobby={person.hobby}
+        />
+      ))}
     </div>
   );
 }
 
-export default app;
+export default App;
