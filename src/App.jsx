@@ -52,3 +52,5 @@ function App() {
 }
 
 export default App;
+<!-- In README.md -->
+This is a test commit after renaming the repo.
